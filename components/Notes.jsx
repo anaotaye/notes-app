@@ -10,6 +10,7 @@ function Notes() {
   const [notes, setNotes] = useState([]);
   const [inputText, setInputText] = useState('');
   const [editNote, setEditNote] = useState(null);
+  const [list, updateList] = useState(notes);
   // const noteRef = useRef(provided.innerRef);
 
   const textHandler = (e) => {
@@ -60,7 +61,7 @@ function Notes() {
     const [reorderedItem] = items.splice(result.source.index, 1);
     items.splice(result.destination.index, 0, reorderedItem);
 
-    setNotes(items);
+    updateList(items);
   };
 
   //saving data to local storage
